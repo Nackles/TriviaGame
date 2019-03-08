@@ -1,6 +1,16 @@
 console.log("don't forget the timer my friend");
 
-//on document.ready:
+
+window.onload = (function () {
+    setTimeout(function(){
+        alert("20 second timeout")
+        //Clear questions and display result
+        },20000)
+});
+
+  $("#display").html("00:00");
+
+//window.onload(){
 
 //variable timer = setTimer()*60000;
 //when time runs out {

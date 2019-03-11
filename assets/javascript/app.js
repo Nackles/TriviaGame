@@ -50,9 +50,9 @@ function answerCheck() {
   var q5 = parseInt($("input:checked[name='dory']").val());
   console.log("q5: "+q5);
   var correct = (q1 + q2 + q3 + q4 + q5);
-  console.log("Do you value this? " + correct + "/5");
+  alert("Do you value this? " + correct + "/5");
   //clearing radio inputs is not functioning
-  $("radio").attr("checked", false);
+  // $("radio").removeAttr("checked");
   clearInterval(answerCountDown);
 }
 

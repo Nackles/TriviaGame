@@ -29,22 +29,27 @@ var answerCountDown = setInterval(function () {
 //RESET//
 /////////
 function reset() {
-    clearInterval(answerCountDown);
-    time = 20;
-    //clear radio inputs
-    console.log("reset called");
-  }
+  clearInterval(answerCountDown);
+  time = 20;
+  //clear radio inputs
+  console.log("reset called");
+}
 
 /////////////////
 //CHECK ANSWERS//
 /////////////////
 function answerCheck() {
-    console.log("answercheck function called");
-    clearInterval(answerCountDown);
-    alert("this is where you add the values");
-    
-    //get total value(might need to rename as points?) of selected radio answers/ clear radio inputs
-  }
+  clearInterval(answerCountDown);
+  var q1 = $("input[name='grossingmovie']").val();
+  console.log(q1);
+  var q2 = $("input[name='bestgame']").val();
+  var q3 = $("input[name='gamemade']").val();
+  var q4 = $("input[name='lightning']").val();
+  var q5 = $("input[name='dory']").val();
+  var correct = (q1 + q2 + q3 + q4 + q5);
+  console.log("Value of correct answers: " + correct);
+
+}
 
 //////////
 //SCRIPT//

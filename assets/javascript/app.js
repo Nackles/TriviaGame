@@ -1,7 +1,8 @@
 //Countdown timer is functioning and calling functions
-//Reset isn't linked to anything yet
-//Reset function doesn't clear answers
-//Answercheck doesn't add values
+//Reset has no button yet
+
+//Answercheck was returning 2/5 every time because I didn't specify I wanted input*:checked[..*, just *input[..*, so it looks like it interpreted that as 'take the first value encountered from that name group'
+//Answercheck radio inputs are not being cleared
 
 ////////////////
 //RESET BUTTON//
@@ -15,7 +16,7 @@ window.onload = (function () {
 ///////////////////////////////////////////////////////////////////////
 //The way this updates the html makes it appear to have a start delay//
 ///////////////////////////////////////////////////////////////////////
-var time = 21;
+var time = 10;
 var answerCountDown = setInterval(function () {
   time--;
   console.log(time);
@@ -31,7 +32,6 @@ var answerCountDown = setInterval(function () {
 function reset() {
   clearInterval(answerCountDown);
   time = 20;
-  //clear radio inputs
   console.log("reset called");
 }
 
@@ -39,16 +39,21 @@ function reset() {
 //CHECK ANSWERS//
 /////////////////
 function answerCheck() {
-  clearInterval(answerCountDown);
-  var q1 = $("input[name='grossingmovie']").val();
-  console.log(q1);
-  var q2 = $("input[name='bestgame']").val();
-  var q3 = $("input[name='gamemade']").val();
-  var q4 = $("input[name='lightning']").val();
-  var q5 = $("input[name='dory']").val();
+  var q1 = parseInt($("input:checked[name='grossingmovie']").val());
+  console.log("q1: "+q1);
+  var q2 = parseInt($("input:checked[name='bestgame']").val());
+  console.log("q2: "+q2);
+  var q3 = parseInt($("input:checked[name='gamemade']").val());
+  console.log("q3: "+q3);
+  var q4 = parseInt($("input:checked[name='lightning']").val());
+  console.log("q4: "+q4);
+  var q5 = parseInt($("input:checked[name='dory']").val());
+  console.log("q5: "+q5);
   var correct = (q1 + q2 + q3 + q4 + q5);
-  console.log("Value of correct answers: " + correct);
-
+  console.log("Do you value this? " + correct + "/5");
+  //clearing radio inputs is not functioning
+  $("radio").attr("checked", false);
+  clearInterval(answerCountDown);
 }
 
 //////////
